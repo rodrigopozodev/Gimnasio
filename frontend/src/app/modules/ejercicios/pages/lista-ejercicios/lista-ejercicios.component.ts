@@ -1,21 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { EjercicioService } from '../../../../core/services/ejercicio.service';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormularioEjercicioComponent } from '../formulario-ejercicio/formulario-ejercicio.component';
 
 @Component({
   selector: 'app-lista-ejercicios',
-  standalone: true,
-  imports: [CommonModule], // Agregar CommonModule
   templateUrl: './lista-ejercicios.component.html',
+  styleUrls: ['./lista-ejercicios.component.css'],
+  standalone: true,
+  imports: [FormularioEjercicioComponent] // 👈 Agregar aquí el componente del formulario
 })
-export class ListaEjerciciosComponent implements OnInit {
-  ejercicios: any[] = [];
-
-  constructor(private ejercicioService: EjercicioService) {}
-
-  ngOnInit(): void {
-    this.ejercicioService.obtenerEjercicios().subscribe(data => {
-      this.ejercicios = data;
-    });
-  }
-}
+export class ListaEjerciciosComponent {}
