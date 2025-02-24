@@ -1,1 +1,23 @@
-<p>lista-ejercicios works!</p>
+<h2 class="text-xl font-bold text-white mb-4">Lista de Ejercicios</h2>
+<table class="w-full border-collapse border border-gray-400 text-white">
+  <thead>
+    <tr class="bg-blue-900">
+      <th class="border border-gray-400 p-2">Nombre</th>
+      <th class="border border-gray-400 p-2">Músculo</th>
+      <th class="border border-gray-400 p-2">Series</th>
+      <th class="border border-gray-400 p-2">Repeticiones</th>
+      <th class="border border-gray-400 p-2">Peso (kg)</th>
+      <th class="border border-gray-400 p-2">Nivel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ejercicio of ejercicios" class="bg-gray-800">
+      <td class="border border-gray-400 p-2">{{ ejercicio.nombre }}</td>
+      <td class="border border-gray-400 p-2">{{ ejercicio.musculo }}</td>
+      <td class="border border-gray-400 p-2">{{ ejercicio.series }}</td>
+      <td class="border border-gray-400 p-2">{{ ejercicio.repeticiones }}</td>
+      <td class="border border-gray-400 p-2">{{ ejercicio.peso }}</td>
+      <td class="border border-gray-400 p-2">{{ ejercicio.nivel }}</td>
+    </tr>
+  </tbody>
+</table>
