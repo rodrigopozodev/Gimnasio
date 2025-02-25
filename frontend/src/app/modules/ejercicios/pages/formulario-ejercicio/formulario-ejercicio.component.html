@@ -1,18 +1,59 @@
-<h2 class="text-xl font-bold text-white mb-4">Agregar Ejercicio</h2>
+<div class="min-h-screen flex items-center justify-center bg-gray-900">
+  <div class="w-full max-w-2xl bg-gray-800 p-6 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold text-blue-500 mb-4">Agregar Ejercicio</h2>
 
-<form (ngSubmit)="agregarEjercicio()" class="space-y-4">
-  <input [(ngModel)]="ejercicio.nombre" name="nombre" type="text" placeholder="Nombre" class="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded" required>
-  <input [(ngModel)]="ejercicio.musculo" name="musculo" type="text" placeholder="Músculo" class="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded" required>
-  <input [(ngModel)]="ejercicio.series" name="series" type="number" placeholder="Series" class="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded" required>
-  <input [(ngModel)]="ejercicio.repeticiones" name="repeticiones" type="number" placeholder="Repeticiones" class="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded" required>
-  <input [(ngModel)]="ejercicio.peso" name="peso" type="number" placeholder="Peso (kg)" class="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded" required>
-  <select [(ngModel)]="ejercicio.nivel" name="nivel" class="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded">
-    <option value="principiante">Principiante</option>
-    <option value="intermedio">Intermedio</option>
-    <option value="avanzado">Avanzado</option>
-  </select>
+    <form (ngSubmit)="agregarEjercicio()" class="space-y-4">
+      <div>
+        <label class="block text-gray-400">Nombre</label>
+        <input [(ngModel)]="ejercicio.nombre" name="nombre" type="text" placeholder="Ej: Press de banca"
+          class="w-full p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required>
+      </div>
 
-  <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded">
-    Agregar Ejercicio
-  </button>
-</form>
+      <div>
+        <label class="block text-gray-400">Músculo</label>
+        <input [(ngModel)]="ejercicio.musculo" name="musculo" type="text" placeholder="Ej: Pecho"
+          class="w-full p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4">
+        <div>
+          <label class="block text-gray-400">Series</label>
+          <input [(ngModel)]="ejercicio.series" name="series" type="number" placeholder="4"
+            class="w-full p-2 bg-gray-700 text-white border border-gray-600 rounded text-center"
+            required>
+        </div>
+
+        <div>
+          <label class="block text-gray-400">Reps</label>
+          <input [(ngModel)]="ejercicio.repeticiones" name="repeticiones" type="number" placeholder="12"
+            class="w-full p-2 bg-gray-700 text-white border border-gray-600 rounded text-center"
+            required>
+        </div>
+
+        <div>
+          <label class="block text-gray-400">Peso (kg)</label>
+          <input [(ngModel)]="ejercicio.peso" name="peso" type="number" placeholder="50"
+            class="w-full p-2 bg-gray-700 text-white border border-gray-600 rounded text-center"
+            required>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-gray-400">Nivel</label>
+        <select [(ngModel)]="ejercicio.nivel" name="nivel"
+          class="w-full p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="principiante">Principiante</option>
+          <option value="intermedio">Intermedio</option>
+          <option value="avanzado">Avanzado</option>
+        </select>
+      </div>
+
+      <button type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg font-bold transition">
+        Agregar Ejercicio
+      </button>
+    </form>
+  </div>
+</div>
