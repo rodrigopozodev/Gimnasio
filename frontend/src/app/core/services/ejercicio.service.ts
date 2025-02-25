@@ -2,29 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-interface Ejercicio {
-  id?: number;
-  nombre: string;
-  musculo: string;
-  series: number;
-  repeticiones: number;
-  peso: number;
-  nivel: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
 export class EjercicioService {
-  private apiUrl = 'http://localhost:8080/api/ejercicios';
+  private apiUrl = 'http://localhost:8080/api/ejercicios'; // Reemplazar con URL del backend
 
   constructor(private http: HttpClient) {}
 
-  obtenerEjercicios(): Observable<Ejercicio[]> {
-    return this.http.get<Ejercicio[]>(this.apiUrl);
+  obtenerEjercicios(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 
-  agregarEjercicio(ejercicio: Ejercicio): Observable<Ejercicio> {
-    return this.http.post<Ejercicio>(this.apiUrl, ejercicio);
+  agregarEjercicio(ejercicio: any): Observable<any> {
+    return this.http.post(this.apiUrl, ejercicio);
+  }
+
+  eliminarEjercicio(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
